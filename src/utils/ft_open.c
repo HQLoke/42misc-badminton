@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_get.c                                       :+:      :+:    :+:   */
+/*   ft_open.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 09:48:14 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 13:58:12 by hloke            ###   ########.fr       */
+/*   Created: 2022/05/27 10:27:47 by hloke             #+#    #+#             */
+/*   Updated: 2022/05/27 10:27:55 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "badminton.h"
 
-char	*player_get(char *name, int stat)
+//* If successful, return the file descriptor
+int	ft_open(const char *path, int flag, int mode)
 {
-	int	i;
+	int	file_des;
 
-	i = 0;
-	while (g_data->player[i] != NULL)
+	file_des = open(path, flag, mode);
+	if (file_des == -1)
 	{
-		if (strcmp(g_data->player[i][0], name) == 0)
-			return (g_data->player[i][stat]);
-		i += 1;
+		ft_putstr_fd("ft_open: ", 2);
+		perror(path);
+		exit (EXIT_FAILURE);
 	}
-	return (NULL);
+	return (file_des);
 }

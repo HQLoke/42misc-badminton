@@ -25,15 +25,13 @@ Example:
 
 Example:
 ./badminton --match-add hloke wting leu-lee tzi-qi 21 19
-5) --match-del (Delete the match history on line x)
-
-Example:
-./badminton --match-del 16
 
 Formula for MMR calculation:
-(lose / win) * (50) * ((score_diff/100) + 1) + (streak * 2)
+(lose team MMR / win team MMR) * (42) * ((score_diff/100) + 1) + 
+(winstreak * 2)
+
+Winstreak point is added only when winstreak >= 3
 
 Error handling:
 1) Invalid option
-2) Invalid 
-3) 
+2)

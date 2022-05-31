@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_get.c                                       :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 09:48:14 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 13:58:12 by hloke            ###   ########.fr       */
+/*   Created: 2022/05/27 11:06:00 by hloke             #+#    #+#             */
+/*   Updated: 2022/05/27 11:06:06 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "badminton.h"
 
-char	*player_get(char *name, int stat)
+void	ft_close(int fd)
 {
-	int	i;
-
-	i = 0;
-	while (g_data->player[i] != NULL)
+	if (close(fd) == -1)
 	{
-		if (strcmp(g_data->player[i][0], name) == 0)
-			return (g_data->player[i][stat]);
-		i += 1;
+		ft_putstr_fd("ft_close: ", 2);
+		perror(NULL);
+		exit (EXIT_FAILURE);
 	}
-	return (NULL);
 }

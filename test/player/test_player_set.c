@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_get.c                                       :+:      :+:    :+:   */
+/*   test_player_set.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 09:48:14 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 13:58:12 by hloke            ###   ########.fr       */
+/*   Created: 2022/05/31 09:54:19 by hloke             #+#    #+#             */
+/*   Updated: 2022/05/31 14:03:12 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "badminton.h"
 
-char	*player_get(char *name, int stat)
+static void test_invalid_player(void)
 {
-	int	i;
+	t_data	data;
+	int		i;
 
-	i = 0;
-	while (g_data->player[i] != NULL)
+	i = -1;
+	while (data.player[++i] != NULL)
 	{
-		if (strcmp(g_data->player[i][0], name) == 0)
-			return (g_data->player[i][stat]);
-		i += 1;
+		int j = 0;
+		while (data.player[i][j] != NULL)
+			printf("%s ", data.player[i][j++]);
+		printf("\n");
 	}
-	return (NULL);
+}
+
+int	main(void)
+{
+	test_invalid_player();
+	return (0);
 }

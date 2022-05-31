@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_get.c                                       :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 09:48:14 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 13:58:12 by hloke            ###   ########.fr       */
+/*   Created: 2022/05/12 09:06:39 by hloke             #+#    #+#             */
+/*   Updated: 2022/05/31 09:21:50 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "badminton.h"
 
-char	*player_get(char *name, int stat)
+/* 
+Deletes the elements pointed to by the pointers in a NULL terminated
+array of pointers 'ptr' using the function 'del', free the array itself.
+*/
+void	ft_memdel(void *ptr, void (*del)(void *))
 {
-	int	i;
+	void	**elem;
 
-	i = 0;
-	while (g_data->player[i] != NULL)
+	if (ptr == NULL)
+		return ;
+	if (del != NULL)
 	{
-		if (strcmp(g_data->player[i][0], name) == 0)
-			return (g_data->player[i][stat]);
-		i += 1;
+		elem = ptr;
+		while (*elem != NULL)
+			del(*elem++);
 	}
-	return (NULL);
+	free(ptr);
 }
