@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   update_player_data.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 09:48:01 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 16:50:32 by hloke            ###   ########.fr       */
+/*   Created: 2022/05/31 16:02:10 by hloke             #+#    #+#             */
+/*   Updated: 2022/05/31 16:09:10 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "badminton.h"
 
-//* Parsing a match file is the most important command. Must be correct before
-//* creating other commands.
-//* 
-static int	teach_them(void)
+void	update_player_data(void)
 {
-	printf("Usage: ./badminton [path_to_match_file]\n");
-	return (1);
-}
+	int	fd_player;
+	int	i;
+	int	j;
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (teach_them());
-	init();
-	match_add(argv[1]);
-	player_sort(mmrpoints);
-	update_player_data();
-	beautiful_output();
-	return (0);
+	fd_player = ft_open("data/player_data.txt", O_WRONLY | O_TRUNC, 0);
+	i = -1;
+	while (g_data->player[++i] != NULL)
+	{
+		j = 0;
+		while (g_data->player[i][j] != NULL)
+		{
+			ft_putstr_fd(g_data->player[i][j++], fd_player);
+			ft_putchar_fd(' ', fd_player);
+		}
+		ft_putchar_fd('\n', fd_player);
+	}
+	close (fd_player);
 }

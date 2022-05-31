@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 09:48:36 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 15:16:37 by hloke            ###   ########.fr       */
+/*   Updated: 2022/05/31 16:07:18 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ void	player_sort(int stat)
 		{
 			if (stat == winrate)
 			{
-				if (atof(g_data->player[j][stat]) < atof(g_data->player[j + 1][stat]))
+				if (atof(g_data->player[j][stat]) < \
+				atof(g_data->player[j + 1][stat]))
 					swap(g_data->player[j], g_data->player[j + 1]);
 			}
 			else
 			{
-				if (atoi(g_data->player[j][stat]) < atoi(g_data->player[j + 1][stat]))
+				if (atoi(g_data->player[j][stat]) < \
+				atoi(g_data->player[j + 1][stat]))
 					swap(g_data->player[j], g_data->player[j + 1]);
 			}
 			j += 1;

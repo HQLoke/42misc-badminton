@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 21:37:30 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 14:48:49 by hloke            ###   ########.fr       */
+/*   Updated: 2022/05/31 16:06:40 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_data
 	char	**player[10000];
 }	t_data;
 
-//* init/init.c
+//* init/
 void	init(void);
 
 //* match/
@@ -61,6 +61,10 @@ int		player_set(char *name, int outcome, int mmr);
 void	player_sort(int stat);
 
 void	player_reset(void);
+
+//* output/
+void	beautiful_output(void);
+void	update_player_data(void);
 
 //* utils/
 void	ft_close(int fd);
