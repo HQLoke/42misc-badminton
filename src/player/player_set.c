@@ -6,7 +6,7 @@
 /*   By: hloke <hloke@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 09:48:38 by hloke             #+#    #+#             */
-/*   Updated: 2022/05/31 16:08:56 by hloke            ###   ########.fr       */
+/*   Updated: 2022/06/05 14:53:02 by hloke            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	player_set(char *name, int outcome, int mmr)
 				stats[currentwinstreak] = 0;
 			}
 			stats[matchesplayed] += 1;
-			winrate = (float)(stats[totalwins])*100.0 / (float)(stats[matchesplayed]);
+			winrate = (float)stats[totalwins] * 100.0 / (float)stats[matchesplayed];
 			stat_set(g_data->player[i], stats, winrate);
 			return (0);
 		}
